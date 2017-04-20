@@ -1,9 +1,29 @@
-from rrb3 import *
+import rrb3 as rrb
+#from rrb3 import rrb
 from random import randint
 
-rr = RRB3(12, 12) # Battery voltage 12V, motor 12V
+rr = rrb.RRB3(12, 12) # Battery voltage 12V, motor 12V
 
 T = 20  # 20 seconds to extend
+
+
+def test_motors():
+    rr.set_motors(0, 0, 0, 0)
+    print("Are Both motors stopped?")
+
+    rr.set_motors(1, 0, 1, 0)
+    print("Are Both motors going forwards?")
+
+    rr.set_motors(0.5, 0, 0.5, 0)
+    print("Are both motors going forwards at half speed?")
+
+    rr.set_motors(1, 1, 1, 1)
+    print("Are both motors going backwards?")
+
+    rr.set_motors(0, 0, 0, 0)
+    print("Are the motors off now?")
+
+test_motors()
 
 extended = False
 
